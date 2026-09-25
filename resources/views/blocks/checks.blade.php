@@ -57,7 +57,7 @@
 
 				@foreach ($r_checks as $item)
 				<div data-gsap-element="card" class="__card relative bg-white radius flex gap-6 p-8">
-					<img class="" src="{{ get_template_directory_uri() }}/resources/images/check.svg" />
+					<img class="" src="{{ get_template_directory_uri() }}/resources/images/check.svg" alt="" />
 					@if (!empty($item['title']))
 					<p class="text-h7">{{ $item['title'] }}</p>
 					@endif

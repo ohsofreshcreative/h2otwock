@@ -3,7 +3,7 @@
 	'-smt' => !get_field('no_footer_margin') && !is_singular('post') && !is_category(),
 ])>
 
-	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-40 z-2 pointer-events-none top-1/2 -translate-y-1/2 left-0 -translate-x-1/2 w-[704px]" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" />
+	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-40 z-2 pointer-events-none top-1/2 -translate-y-1/2 left-0 -translate-x-1/2 w-[704px]" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" alt="" />
 
 	<div class="c-main __wrapper relative z-10">
 		<div class="__widgets grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-1 md:gap-6 footer-py *:border-l *:border-dashed *:border-primary-400 *:pl-6">
@@ -61,7 +61,7 @@
 				</div>
 			</div>
 			<p class="flex gap-2">Designed &amp; Developed by
-				<a target="_blank" rel="nofollow" href="https://www.ohsofresh.pl" title="OhSoFresh"><img class="oh" src="{{ get_template_directory_uri() }}/resources/images/ohsofresh.svg"></a>
+				<a target="_blank" rel="nofollow" href="https://www.ohsofresh.pl" title="OhSoFresh"><img class="oh" src="{{ get_template_directory_uri() }}/resources/images/ohsofresh.svg" alt="OhSoFresh"></a>
 			</p>
 		</div>
 	</div>

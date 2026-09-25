@@ -25,7 +25,7 @@
 							<div class="relative z-10 flex flex-col gap-4 h-full pt-16 p-8 mt-6">
 								@if(!empty($card['txt']))
 								<div class="review-content-wrapper">
-									<div class=""><img src="/wp-content/uploads/2026/07/quote.svg" /></div>
+									<div class=""><img src="/wp-content/uploads/2026/07/quote.svg" alt="" /></div>
 									<p class="text-h5 mt-14 block">{!! $card['header'] !!}</p>
 									<div class="__txt mt-4 line-clamp-6">{!! $card['txt'] !!}</div>
 									<button class="btn-more hidden underline text-primary font-bold mt-2 cursor-pointer">Zobacz całość</button>
@@ -83,7 +83,7 @@
 			<div id="review-popup-text" class="prose max-w-none mb-4">
 			</div>
 			<div class="flex items-center gap-4">
-				<img src="/wp-content/uploads/2026/01/stars.svg" class="h-5" />
+				<img src="/wp-content/uploads/2026/01/stars.svg" class="h-5" alt="" />
 				<b id="review-popup-author" class="font-header text-xl">
 				</b>
 			</div>

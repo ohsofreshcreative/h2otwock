@@ -5,6 +5,51 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	@php
+	$metaDescription = is_singular() && has_excerpt()
+		? wp_strip_all_tags(get_the_excerpt())
+		: (get_bloginfo('description') ?: sprintf(__('Oficjalna strona %s.', 'sage'), $siteName));
+	$canonicalUrl = wp_get_canonical_url() ?: home_url(add_query_arg([], $_SERVER['REQUEST_URI'] ?? '/'));
+	@endphp
+
+	<meta name="description" content="{{ $metaDescription }}">
+	<link rel="canonical" href="{{ $canonicalUrl }}">
+
+	<meta property="og:site_name" content="{{ $siteName }}">
+	<meta property="og:title" content="{{ wp_get_document_title() }}">
+	<meta property="og:description" content="{{ $metaDescription }}">
+	<meta property="og:url" content="{{ $canonicalUrl }}">
+	<meta property="og:type" content="{{ is_singular() ? 'article' : 'website' }}">
+	@if ($logo)
+	<meta property="og:image" content="{{ $logo['url'] }}">
+	@endif
+	<meta name="twitter:card" content="summary_large_image">
+
+	@php
+	$organizationSchema = array_filter([
+		'@type' => 'Organization',
+		'name' => $siteName,
+		'url' => home_url('/'),
+		'logo' => $logo['url'] ?? null,
+		'telephone' => $footer_contact['phone'] ?? null,
+		'email' => $footer_contact['email'] ?? null,
+	]);
+	@endphp
+	<script type="application/ld+json">
+	{!! wp_json_encode([
+		'@context' => 'https://schema.org',
+		'@graph' => [
+			$organizationSchema,
+			[
+				'@type' => 'WebSite',
+				'name' => $siteName,
+				'url' => home_url('/'),
+			],
+		],
+	]) !!}
+	</script>
+
 	@php(do_action('get_header'))
 	@php(wp_head())
 

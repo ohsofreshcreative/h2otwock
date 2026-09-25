@@ -43,7 +43,7 @@ $events_card_button = get_field('events_card_button') ?: [
 				@endif
 			</div>
 		</div>
-		<a class="absolute bg-secondary-accent hover:bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto bottom-0 translate-y-1/2 z-20" href="#tresc"><img src="{{ get_template_directory_uri() }}/resources/images/anchor-arrow.svg" /></a>
+		<a class="absolute bg-secondary-accent hover:bg-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto bottom-0 translate-y-1/2 z-20" href="#tresc" aria-label="Przejdź do treści"><img src="{{ get_template_directory_uri() }}/resources/images/anchor-arrow.svg" alt="" /></a>
 	</div>
 </section>
 

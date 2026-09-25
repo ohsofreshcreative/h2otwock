@@ -9,7 +9,7 @@
 	$background => filled($background) && $background !== 'none',
 	])>
 
-	<img class="absolute max-w-none left-1/2 -translate-x-1/2 lg:w-full lg:max-w-full lg:left-0 lg:translate-x-0" src="{{ get_template_directory_uri() }}/resources/images/line.svg" />
+	<img class="absolute max-w-none left-1/2 -translate-x-1/2 lg:w-full lg:max-w-full lg:left-0 lg:translate-x-0" src="{{ get_template_directory_uri() }}/resources/images/line.svg" alt="" />
 
 	<div class="__wrapper c-main !mt-40">
 		@if(!empty($g_table['header']) || !empty($g_table['text']))

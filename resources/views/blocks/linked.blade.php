@@ -9,7 +9,7 @@
 	$background => filled($background) && $background !== 'none',
 	])>
 
-	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 top-1/2 -translate-y-1/2 right-0 translate-x-1/3 w-[704px] z-2 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" />
+	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 top-1/2 -translate-y-1/2 right-0 translate-x-1/3 w-[704px] z-2 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" alt="" />
 
 	<div class="__wrapper c-main relative z-10">
 		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">

@@ -9,7 +9,7 @@
 	$background => filled($background) && $background !== 'none',
 	])>
 
-	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 top-1/2 -translate-y-1/2 right-0 translate-x-1/3 z-1 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/decor.svg" />
+	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 top-1/2 -translate-y-1/2 right-0 translate-x-1/3 z-1 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/decor.svg" alt="" />
 
 	<div class="__wrapper c-main relative z-2 flex flex-col gap-8">
 		@if(!empty($g_gastro['header']) || !empty($g_gastro['text']))

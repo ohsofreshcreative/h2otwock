@@ -26,7 +26,7 @@
 	<div class="absolute inset-0 z-1 pointer-events-none" style="background: linear-gradient(90deg, #001D51 5.84%, rgba(0, 29, 81, 0.20) 100.47%);"></div>
 	@endif
 
-	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 z-2 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" />
+	<img data-gsap-element="signet" class="absolute mix-blend-overlay opacity-20 z-2 pointer-events-none" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" alt="" />
 
 	<div class=" __wrapper c-main relative z-10">
 		<div class="__content relative flex flex-col justify-center w-full md:w-10/12 lg:w-8/12 z-20 pt-48 pb-62">

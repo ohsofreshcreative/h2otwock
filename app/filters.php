@@ -50,6 +50,18 @@ add_filter('woocommerce_coming_soon_template', function ($template) {
     return $template;
 });
 
+/*--- Wyłączenie domyślnego canonical z rdzenia WP — własny, szerszy canonical jest w layouts/app.blade.php ---*/
+remove_action('wp_head', 'rel_canonical');
+
+/*--- ROBOTS.TXT: jawne dopuszczenie botów AI (sitemap dodaje już rdzeń WP) ---*/
+add_filter('robots_txt', function ($output) {
+    $output .= "\nUser-agent: GPTBot\nAllow: /\n";
+    $output .= "\nUser-agent: ClaudeBot\nAllow: /\n";
+    $output .= "\nUser-agent: PerplexityBot\nAllow: /\n";
+
+    return $output;
+});
+
 /*--- CHANGE EDIT SECTION ---*/
 
 

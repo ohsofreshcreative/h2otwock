@@ -7,20 +7,23 @@ use Walker_Nav_Menu;
 class MobileDropdownWalker extends Walker_Nav_Menu
 {
     private $current_item_url;
+    private $current_submenu_id;
 
     /**
      * Starts the list before the elements are added.
      */
     public function start_lvl(&$output, $depth = 0, $args = null)
     {
+        $submenu_id = $this->current_submenu_id;
+
         // Dodajemy link do strony nadrzędnej jako pierwszy element podmenu
         if ($depth === 0 && isset($this->current_item_url)) {
-            $output .= "\n<ul x-show=\"open\" x-transition class=\"pl-4 mt-2 space-y-2\" style=\"display: none;\">\n";
+            $output .= "\n<ul id=\"{$submenu_id}\" x-show=\"open\" x-transition class=\"pl-4 mt-2 space-y-2\" style=\"display: none;\">\n";
             $output .= '<li><a href="' . esc_attr($this->current_item_url) . '" class="block py-1 font-semibold">Zobacz wszystko</a></li>';
             unset($this->current_item_url); // Czyścimy właściwość po użyciu
         } else {
             // Submenu jest domyślnie ukryte i pojawia się z animacją.
-            $output .= "\n<ul x-show=\"open\" x-transition class=\"pl-4 mt-2 space-y-2\" style=\"display: none;\">\n";
+            $output .= "\n<ul id=\"{$submenu_id}\" x-show=\"open\" x-transition class=\"pl-4 mt-2 space-y-2\" style=\"display: none;\">\n";
         }
     }
 
@@ -38,10 +41,13 @@ class MobileDropdownWalker extends Walker_Nav_Menu
 
         // Case 1: Element ma dzieci (submenu).
         if ($has_children) {
+            $submenu_id = 'submenu-' . $item->ID;
+            $this->current_submenu_id = $submenu_id;
+
             $output .= '<li x-data="{ open: false }">';
-            
+
             // Używamy klas `block py-1` dla spójności, dodając `relative` do pozycjonowania strzałki
-            $output .= '<button @click="open = !open" class="block w-full py-1 text-left relative">';
+            $output .= '<button @click="open = !open" class="block w-full py-1 text-left relative" aria-haspopup="true" :aria-expanded="open.toString()" aria-controls="' . esc_attr($submenu_id) . '">';
             $output .= '<span class="!text-white !text-xl hover:!text-primary-400">' . esc_html($item->title) . '</span>';
             
             // Pozycjonujemy strzałkę absolutnie wewnątrz przycisku

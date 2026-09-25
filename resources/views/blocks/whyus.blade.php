@@ -62,7 +62,7 @@
 				@if(!empty($tile_4))
 				<div class="md:col-span-2 bg-lighter radius p-8 md:p-10 flex flex-col justify-between min-h-[504px]">
 					<div>
-						<div class=""><img src="/wp-content/uploads/2026/07/quote.svg" /></div>
+						<div class=""><img src="/wp-content/uploads/2026/07/quote.svg" alt="" /></div>
 						<p class="text-h7 mt-10">
 							{{ $tile_4['quote'] ?? '' }}
 						</p>

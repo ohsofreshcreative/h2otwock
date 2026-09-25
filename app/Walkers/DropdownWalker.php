@@ -27,12 +27,12 @@ class DropdownWalker extends Walker_Nav_Menu
         // Case 1: Element jest na najwyższym poziomie i ma dzieci (jest dropdownem)
         if ($depth === 0 && $has_children) {
             // Logika Alpine.js do otwierania/zamykania przy hover zostaje w <li>
-            $output .= '<li x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" class="relative ' . esc_attr(implode(' ', $item->classes)) . '">';
-            
+            $output .= '<li x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" @focusin="open = true" @focusout="open = false" class="relative ' . esc_attr(implode(' ', $item->classes)) . '">';
+
             // ### POCZĄTEK ZMIANY ###
             // Zamiast <button> używamy <a> z linkiem do strony nadrzędnej.
             // Usunęliśmy `@click`, aby kliknięcie powodowało standardową nawigację.
-            $output .= '<a href="' . esc_attr($item->url) . '" class="inline-flex items-center gap-x-1 text-sm! xl:text-base! font-medium hover:text-indigo-600">';
+            $output .= '<a href="' . esc_attr($item->url) . '" class="inline-flex items-center gap-x-1 text-sm! xl:text-base! font-medium hover:text-indigo-600" aria-haspopup="true" :aria-expanded="open.toString()">';
             $output .= esc_html($item->title);
             $output .= '<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>';
             $output .= '</a>';

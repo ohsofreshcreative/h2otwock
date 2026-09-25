@@ -10,7 +10,7 @@
 	])>
 
 	@if ($bgshape)
-	<img class="absolute max-h-32 top-0 right-0 z-10" src="{{ get_template_directory_uri() }}/resources/images/top-shape.svg" />
+	<img class="absolute max-h-32 top-0 right-0 z-10" src="{{ get_template_directory_uri() }}/resources/images/top-shape.svg" alt="" />
 	@endif
 
 	<div class="c-main section-py">
