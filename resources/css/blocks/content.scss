@@ -1,10 +1,17 @@
 .b-content {
 	.__txt {
-		h1, h2, h3, h4, h5, h6 {
-			color:var(--color-primary);
-			font-size:20px !important;
-			margin-top:16px
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: var(--color-primary);
+			font-size: 20px !important;
+			margin-top: 16px
 		}
+
 		p {
 			margin-bottom: 16px;
 		}
@@ -15,6 +22,7 @@
 
 		strong {
 			font-weight: 600;
+			display: block;
 		}
 
 		ul {
@@ -48,9 +56,16 @@
 			}
 		}
 	}
+
+	.__txt p:nth-of-type(1) {
+		font-weight: 500;
+	}
+
+	.__txt p:nth-of-type(2) {
+		color: var(--color-primary-400);
+		margin-top: 16px;
+	}
 }
-
-
 
 /*--- BRAK PUNKTATORÓW ---*/
 
@@ -72,6 +87,74 @@
 					display: none;
 				}
 			}
+		}
+	}
+}
+
+/*--- LISTA NUMEROWANA ---*/
+
+.b-content {
+	.__txt {
+		ol {
+			counter-reset: b-content-point;
+			list-style: none;
+			padding-left: 0;
+			margin-top: 8px;
+			margin-bottom: 24px;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			li {
+				counter-increment: b-content-point;
+				position: relative;
+				padding-left: 56px;
+				padding-top: 8px;
+				margin-bottom: 0;
+				border-top: 1px dashed var(--color-primary-100);
+
+				/*--- Numer 01, 02, 03… generowany licznikiem CSS ---*/
+				&::before {
+					content: counter(b-content-point, decimal-leading-zero);
+					position: absolute;
+					left: 0;
+					top: 4px;
+					width: 32px;
+					font-family: var(--header);
+					font-size: 20px;
+					line-height: 1.3;
+					color: var(--color-primary-100);
+				}
+
+				strong {
+					display: block;
+					margin-bottom: 4px;
+					font-family: var(--header);
+					font-size: 20px;
+					font-weight: 400;
+					line-height: 1.3;
+					color: var(--color-background-navy);
+				}
+			}
+		}
+	}
+}
+
+.b-content.patron {
+	figure, img {
+		max-height: 100%;
+		height: 800px;
+	}
+}
+
+@media (max-width: 768px) {
+	.b-content.patron {
+		figure, img {
+			height: auto;
 		}
 	}
 }

@@ -3,7 +3,7 @@
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-cta relative -smt' ,
+	@class([ 'b-cta relative bg-main overflow-hidden -smt' ,
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
@@ -11,15 +11,17 @@
 
 	<div class="__wrapper relative overflow-hidden">
 
-		@if (!empty($g_octa['image']['url']))
-		<figure class="absolute inset-0 m-0 z-0">
-			<picture>
-				<img src="{{ $g_octa['image']['url'] }}" alt="" class="w-full h-full object-cover object-right">
-			</picture>
-		</figure>
-		@endif
+		<img
+			src="{{ get_template_directory_uri() }}/resources/images/cta-shape.svg"
+			alt=""
+			class="__shape hidden md:block absolute inset-y-0 right-0 h-full w-auto max-h-[200px] z-0" />
 
-		<div class="absolute top-0 left-0 bottom-0 z-10 w-full md:w-[75%]" style="border-radius: 0 0 9999px 0; background: linear-gradient(90deg, #2265CB 0%, #181D84 100%);"></div>
+		@if (!empty($g_octa['image']['url']))
+		<img
+			src="{{ $g_octa['image']['url'] }}"
+			alt=""
+			class="__image hidden md:block absolute inset-y-0 right-0 h-full aspect-918/954 scale-105 object-cover z-10" />
+		@endif
 
 		<div class="__inside c-main grid grid-cols-1 md:grid-cols-2 items-center gap-6 relative z-20">
 			<div class="__content w-full py-52">
@@ -34,8 +36,7 @@
 					@if (!empty($g_octa['button1']))
 					<x-button
 						:href="$g_octa['button1']['url']"
-						variant="white"
-						class=""
+						variant="primary"
 						data-gsap-element="btn">
 						{{ $g_octa['button1']['title'] }}
 					</x-button>
@@ -44,8 +45,8 @@
 					@if (!empty($g_octa['button2']))
 					<x-button
 						:href="$g_octa['button2']['url']"
-						variant="secondary"
-						class=""
+						variant="outline"
+						class="text-white! hover:text-main!"
 						data-gsap-element="btn">
 						{{ $g_octa['button2']['title'] }}
 					</x-button>

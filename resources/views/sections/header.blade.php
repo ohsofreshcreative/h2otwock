@@ -3,10 +3,10 @@ use App\Walkers\DropdownWalker;
 use App\Walkers\MobileDropdownWalker;
 @endphp
 
-<header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-white masthead fixed-top mx-0 lg:mx-6 rounded-b-2xl lg:rounded-b-[48px]">
+<header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-transparent masthead fixed-top">
 
 	<!-- Desktop Header -->
-	<div class="items-center justify-between hidden h-full py-4 px-12 mx-auto lg:flex">
+	<div class="items-center justify-between hidden h-full py-4 px-12 mx-auto lg:flex border-b border-primary-light/20">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
 			@if ($logo)
 			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12">
@@ -14,29 +14,23 @@ use App\Walkers\MobileDropdownWalker;
 			<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
-		@if (has_nav_menu('primary_navigation'))
-		<nav class="ml-6 lg:ml-15 nav-primary w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-			{!! wp_nav_menu([
-			'theme_location' => 'primary_navigation',
-			'menu_class' => 'nav flex gap-x-3 lg:gap-x-6 text-lg font-medium justify-center items-center',
-			'container' => false,
-			'echo' => false,
-			'walker' => new DropdownWalker(),
-			]) !!}
-		</nav>
-		@endif
-
-
-		<div class="flex items-center gap-2 mr-6">
-			{!! do_shortcode('[gt-link lang="pl" widget_look="flags"]') !!}
-			{!! do_shortcode('[gt-link lang="en" widget_look="flags"]') !!}
-			{!! do_shortcode('[gt-link lang="it" widget_look="flags"]') !!}
-		</div>
-
-		<div class="">
-			<a href="/kontakt/" class="block w-full btn btn-secondary">
-				Kontakt
-			</a>
+		<div class="flex items-center gap-x-12">
+			@if (has_nav_menu('primary_navigation'))
+			<nav class="ml-6 lg:ml-auto nav-primary w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+				{!! wp_nav_menu([
+				'theme_location' => 'primary_navigation',
+				'menu_class' => 'nav flex gap-x-3 lg:gap-x-6 text-lg font-medium justify-center items-center',
+				'container' => false,
+				'echo' => false,
+				'walker' => new DropdownWalker(),
+				]) !!}
+			</nav>
+			@endif
+			<div class="">
+				<a href="/kontakt/" class="block w-full btn btn-secondary">
+					Kontakt
+				</a>
+			</div>
 		</div>
 	</div>
 
@@ -76,11 +70,11 @@ use App\Walkers\MobileDropdownWalker;
 		x-transition:leave="transition ease-in duration-150"
 		x-transition:leave-start="opacity-100 transform translate-x-0"
 		x-transition:leave-end="opacity-0 transform translate-x-full"
-		class="mobile-menu fixed top-0 right-0 bottom-0 w-full h-full bg-primary shadow-xl z-[51] overflow-y-auto md:hidden"
+		class="mobile-menu fixed top-0 right-0 bottom-0 w-full h-full bg-main shadow-xl z-[51] overflow-y-auto lg:hidden"
 		aria-label="Menu mobilne">
 		<div class="p-4 relative z-10">
 			<div class="flex items-center justify-between mb-6">
-				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12 invert grayscale"></a></span>
+				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12"></a></span>
 				<button
 					@click="mobileOpen = false"
 					class="p-2 text-white rounded-md">
@@ -95,7 +89,7 @@ use App\Walkers\MobileDropdownWalker;
 			<nav class="flex flex-col space-y-1 mt-20">
 				{!! wp_nav_menu([
 				'theme_location' => 'primary_navigation',
-				'menu_class' => 'nav-mobile flex flex-col space-y-2',
+				'menu_class' => 'nav-mobile flex flex-col space-y-2 [&_li]:border-b [&_li]:border-dashed [&_li]:border-third/20 [&_li]:pb-2',
 				'container' => false,
 				'echo' => false,
 				'walker' => new MobileDropdownWalker(),
@@ -109,12 +103,6 @@ use App\Walkers\MobileDropdownWalker;
 				</a>
 			</div>
 
-
-		<div class="flex items-center gap-2 mt-16">
-			{!! do_shortcode('[gt-link lang="pl" widget_look="flags"]') !!}
-			{!! do_shortcode('[gt-link lang="en" widget_look="flags"]') !!}
-			{!! do_shortcode('[gt-link lang="it" widget_look="flags"]') !!}
-		</div>
 		</div>
 
 	</div>

@@ -10,70 +10,79 @@
   /* base */
   --body: 42 63 80; /* #2A3F50 */
 
-/* PRIMARY (lewa kolumna – granat) */
---primary: 23 28 132;   /* #171C84 */
---p-hover: 5 6 26;      /* #05061A */
+/* PRIMARY (granat) */
+.primary-check { color:#1A3955;}
+--primary: 26 57 85;      /* #1A3955 */
+--p-hover: 5 11 17;       /* #050B11 */
 
---p-50: 200 202 240;    /* #C8CAF0 */
---p-100: 168 170 221;   /* #A8AADD */
---p-200: 133 136 204;   /* #8588CC */
---p-300: 92 96 182;     /* #5C60B6 */
---p-400: 57 61 162;     /* #393DA2 */
---p-500: 23 28 132;     /* #171C84 */
---p-600: 19 23 110;     /* #13176E */
---p-700: 15 19 88;      /* #0F1358 */
---p-800: 12 14 66;      /* #0C0E42 */
---p-900: 8 9 44;        /* #08092C */
---p-dark: 5 6 26;       /* #05061A */
+--p-50: 207 230 254;      /* #CFE6FE */
+--p-100: 187 214 244;     /* #BBD6F4 */
+--p-200: 143 183 226;     /* #8FB7E2 */
+--p-300: 106 157 212;     /* #6A9DD4 */
+--p-400: 58 108 161;      /* #3A6CA1 */
+--p-500: 26 57 85;        /* #1A3955 */
+--p-600: 22 48 71;        /* #163047 */
+--p-700: 17 38 57;        /* #112639 */
+--p-800: 13 29 43;        /* #0D1D2B */
+--p-900: 9 19 28;         /* #09131C */
+--p-dark: 5 11 17;        /* #050B11 */
+--p-bg: 0 21 60; /* #00153C */
 
---action: rgb(23, 28, 132);
-
-/* SECONDARY (niebieski) */
---secondary: 38 130 232;  /* #2682E8 */
---s-hover: 32 108 193;    /* #206CC1 */
-
---s-50: 212 230 250;    /* #D4E6FA */
---s-100: 183 213 247;   /* #B7D5F7 */
---s-200: 146 192 243;   /* #92C0F3 */
---s-300: 110 172 240;   /* #6EACF0 */
---s-400: 74 151 236;    /* #4A97EC */
---s-500: 38 130 232;    /* #2682E8 */
---s-600: 32 108 193;    /* #206CC1 */
---s-700: 25 87 155;     /* #19579B */
---s-800: 19 65 116;     /* #134174 */
---s-900: 13 43 77;      /* #0D2B4D */
---s-dark: 8 26 46;      /* #081A2E */
+--action: rgb(26, 57, 85);
 
 
-/* THIRD (różowy/fioletowy) */
---third: 248 129 240; /* #F881F0 */
---t-hover: 207 108 200; /* #CF6CC8 */
+/* SECONDARY (brąz) */
+.secondary-check { color:#492D28;}
+--secondary: 73 45 40;    /* #492D28 */
+--s-hover: 61 38 33;        /* #0F0908 */
 
---t-50: 254 230 252;  /* #FEE6FC */
---t-100: 253 213 250; /* #FDD5FA */
---t-200: 252 192 248; /* #FCC0F8 */
---t-300: 250 171 245; /* #FAABF5 */
---t-400: 249 150 243; /* #F996F3 */
---t-500: 248 129 240; /* #F881F0 */
---t-600: 207 108 200; /* #CF6CC8 */
---t-700: 165 86 160;  /* #A556A0 */
---t-800: 124 65 120;  /* #7C4178 */
---t-900: 83 43 80;    /* #532B50 */
---t-dark: 50 26 48;   /* #321A30 */
+--s-50: 227 207 203;      /* #E3CFCB */
+--s-100: 217 176 168;     /* #D9B0A8 */
+--s-200: 184 141 134;     /* #B88D86 */
+--s-300: 148 105 97;      /* #946961 */
+--s-400: 118 73 65;       /* #764941 */
+--s-500: 73 45 40;        /* #492D28 */
+--s-600: 61 38 33;        /* #3D2621 */
+--s-700: 49 30 27;        /* #311E1B */
+--s-800: 37 23 20;        /* #251714 */
+--s-900: 24 15 13;        /* #180F0D */
+--s-dark: 15 9 8;         /* #0F0908 */
+--s-accent: 148 105 97;         /* #946961 */
+
+
+/* THIRD (jasny niebieski) */
+.third-check { color:#BBD6F3;}
+--third: 187 214 243;     /* #BBD6F3 */
+--t-hover: 111 146 183;   /* #6F92B7 */
+
+--t-50: 241 247 253;      /* #F1F7FD */
+--t-100: 232 241 251;     /* #E8F1FB */
+--t-200: 221 235 249;     /* #DDEBF9 */
+--t-300: 210 228 247;     /* #D2E4F7 */
+--t-400: 198 221 245;     /* #C6DDF5 */
+--t-500: 187 214 243;     /* #BBD6F3 */
+--t-600: 156 178 203;     /* #9CB2CB */
+--t-700: 125 143 162;     /* #7D8FA2 */
+--t-800: 94 107 122;      /* #5E6B7A */
+--t-900: 62 71 81;        /* #3E4751 */
+--t-dark: 37 43 49;       /* #252B31 */
 
   /* neutrals / fixed backgrounds */
   --text-body: rgb(var(--p-800));
   --gray: #2a3f50;
   --bg: #F4F9FF;
-  --bg-light: rgb(var(--s-100));
-  --bg-lighter: rgb(var(--s-50));
+  --bg-light: rgb(var(--p-50));
+  --bg-lighter: rgb(var(--t-100));
   --bg-brand: #002704;
   --bg-dark: #071622;
+  --bg-navy: #001D51;
 }
 
 @theme {
   /* base */
   --color-body: rgb(var(--body));
+  --color-main: var(--bg-navy);
+  --color-main-light: #10377B;
 
   /* primary */
   --color-primary: rgb(var(--primary));
@@ -89,6 +98,7 @@
   --color-primary-800: rgb(var(--p-800));
   --color-primary-900: rgb(var(--p-900));
   --color-primary-dark: rgb(var(--p-dark));
+  --color-primary-bg: rgb(var(--p-bg));
 
   /* secondary */
   --color-secondary: rgb(var(--secondary));
@@ -103,6 +113,7 @@
   --color-secondary-800: rgb(var(--s-800));
   --color-secondary-900: rgb(var(--s-900));
   --color-secondary-dark: rgb(var(--s-dark));
+  --color-secondary-accent: rgb(var(--s-accent));
 
   /* third */
   --color-third: rgb(var(--third));
@@ -125,17 +136,16 @@
   --color-background-light: var(--bg-light);
   --color-background-brand: var(--bg-brand);
   --color-background-dark: var(--bg-dark);
+  --color-background-navy: var(--bg-navy);
 
-  --color-primary-light: var(--color-primary-300);
-  --color-primary-lighter: var(--color-primary-100);
+  --color-primary-light: var(--color-primary-100);
+  --color-primary-lighter: var(--color-primary-50);
 
   --color-secondary-light: var(--color-secondary-200);
   --color-secondary-lighter: var(--color-secondary-100);
 
   --color-muted: var(--color-secondary-500);
-  --gradient: linear-gradient(90deg, #2265CB 0%, #181D84 100%);
-  --gradient-light: linear-gradient(-90deg, #0E3A2D 0%, #0A533D 100%);
-  --gradient-s: linear-gradient(-90deg, #DE855D 0%, #D37A51 100%);
+  --gradient: linear-gradient(90deg, #001D51 0%, #00276D 100%);
 
 }
 
@@ -159,14 +169,6 @@
 @import 'swiper/css/pagination';
 @import 'baguettebox.js/dist/baguetteBox.min.css';
 
-/* GTranslate marks only the clicked link; hide its mobile/desktop copy too. */
-.masthead a.gt-current-lang,
-.masthead:has(a.gt-current-lang[data-gt-lang="pl"]) a[data-gt-lang="pl"],
-.masthead:has(a.gt-current-lang[data-gt-lang="en"]) a[data-gt-lang="en"],
-.masthead:has(a.gt-current-lang[data-gt-lang="it"]) a[data-gt-lang="it"] {
-  display: none;
-}
-
 /*-- USED ---*/
 @import '../css/blocks/hero.scss';
 @import '../css/blocks/about.scss';
@@ -188,14 +190,36 @@
 @import '../css/blocks/map.scss';
 @import '../css/blocks/catalogues.scss';
 @import '../css/blocks/action.scss';
+@import '../css/blocks/plan.scss';
+@import '../css/blocks/offer.scss';
+@import '../css/blocks/everyone.scss';
+@import '../css/blocks/courses.scss';
+@import '../css/blocks/gastro.scss';
+@import '../css/blocks/news.scss';
+@import '../css/blocks/submenu.scss';
+@import '../css/blocks/pool.scss';
+@import '../css/blocks/attractions.scss';
+@import '../css/blocks/activities.scss';
+@import '../css/blocks/terms.scss';
+@import '../css/blocks/faq.scss';
+@import '../css/blocks/overlap.scss';
+@import '../css/blocks/proces.scss';
+@import '../css/blocks/events.scss';
+@import '../css/blocks/tiles.scss';
+@import '../css/blocks/zones.scss';
+@import '../css/blocks/linked.scss';
+@import '../css/blocks/classes.scss';
+@import '../css/blocks/groups.scss';
+@import '../css/blocks/choose.scss';
+@import '../css/blocks/contact.scss';
+@import '../css/blocks/reach.scss';
+@import '../css/blocks/possibilities.scss';
+@import '../css/blocks/how.scss';
+@import '../css/blocks/prices.scss';
 /*-- NOT USED ---*/
 @import '../css/blocks/accordion.scss';
 @import '../css/blocks/cards.scss';
 @import '../css/blocks/category-posts.scss';
-@import '../css/blocks/contact.scss';
-@import '../css/blocks/faq.scss';
 @import '../css/blocks/image.scss';
 @import '../css/blocks/numbers.scss';
-@import '../css/blocks/overlap.scss';
-@import '../css/blocks/proces.scss';
 @import '../css/blocks/tabs.scss';

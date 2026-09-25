@@ -4,24 +4,23 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionBackgrounds;
 use App\Support\SectionClasses;
 
 class About extends Block
 {
-	public $name = 'O firmie';
+	public $name = 'O nas';
 	public $description = 'about';
 	public $slug = 'about';
 	public $category = 'formatting';
-	public $icon = 'universal-access-alt';
-	public $keywords = ['tresc', 'zdjecie'];
+	public $icon = 'info-outline';
+	public $keywords = ['o nas', 'about', 'kafelki'];
 	public $mode = 'edit';
-public $supports = [
-    'align' => false,
-    'mode' => true,
-    'jsx' => true,
-    'anchor' => true,
-    'customClassName' => true,
-];
+	public $supports = [
+		'align' => false,
+		'mode' => true,
+		'jsx' => true,
+	];
 
 	public function fields()
 	{
@@ -29,43 +28,9 @@ public $supports = [
 
 		$about
 			->setLocation('block', '==', 'acf/about') // ważne!
-			/*--- GROUP ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_about', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('text', [
-				'label' => 'Treść',
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => true,
-			])
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->addLink('button2', [
-				'label' => 'Przycisk #2',
-				'return_format' => 'array',
-			])
-			->endGroup()
-
-			/*--- TAB #2 ---*/
-			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_about', [
-				'label' => 'Kafelki',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addText('title', [
-				'label' => 'Nagłówek',
-			])
-			->endRepeater()
+			/*--- FIELDS ---*/
+			->addTab('Treść', ['placement' => 'top'])
+			->addMessage('Edycja', 'Tę zawartość edytujemy klikając w menu panelu administratora „O nas”.')
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -108,15 +73,7 @@ public $supports = [
 			])
 			->addSelect('background', [
 				'label' => 'Kolor tła',
-				'choices' => [
-					'none' => 'Brak (domyślne)',
-					'section-white' => 'Białe',
-					'section-light' => 'Jasne',
-					'section-gray' => 'Szare',
-					'section-brand' => 'Marki',
-					'section-gradient' => 'Gradient',
-					'section-dark' => 'Ciemne',
-				],
+				'choices' => SectionBackgrounds::choices(),
 				'default_value' => 'none',
 				'ui' => 0, // Ulepszony interfejs
 				'allow_null' => 0,
@@ -128,8 +85,8 @@ public $supports = [
 	public function with(): array
 	{
 		$fields = [
-			'g_about' => get_field('g_about'),
-			'r_about' => get_field('r_about'),
+			'g_about' => get_field('g_about', 'option'),
+			'r_about' => get_field('r_about', 'option') ?: [],
 
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),

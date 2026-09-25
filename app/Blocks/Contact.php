@@ -4,6 +4,7 @@ namespace App\Blocks;
 
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
+use App\Support\SectionBackgrounds;
 use App\Support\SectionClasses;
 
 class Contact extends Block
@@ -31,36 +32,49 @@ class Contact extends Block
 		$contact
 			->setLocation('block', '==', 'acf/contact') // ważne!
 			/*--- FIELDS ---*/
-			/*--- TAB #1 ---*/
-			->addTab('Dane', ['placement' => 'top'])
-			->addGroup('g_contact_1', ['label' => ''])
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_contact', ['label' => ''])
 			->addImage('image', [
-				'label' => 'Obraz',
+				'label' => 'Zdjęcie',
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
 			])
-			->addText('header', ['label' => 'Tytuł'])
+			->addText('header', ['label' => 'Nagłówek'])
+			->addText('subheader', ['label' => 'Podtytuł'])
+			->addTextarea('address', [
+				'label' => 'Adres',
+				'rows' => 2,
+				'new_lines' => 'br',
+			])
 			->addText('phone', [
-				'label' => 'Numer telefonu',
+				'label' => 'Telefon komórkowy',
+			])
+			->addText('phone2', [
+				'label' => 'Telefon stacjonarny',
 			])
 			->addText('mail', [
 				'label' => 'Adres e-mail',
 			])
-			->addTextarea('address', [
-				'label' => 'Adres',
-				'rows' => 3,
-				'new_lines' => 'br',
+			->addText('hours', [
+				'label' => 'Godziny otwarcia',
 			])
-			->endGroup()
-			/*--- TAB #2 ---*/
-			->addTab('Formularz', ['placement' => 'top'])
-			->addGroup('g_contact_2', ['label' => ''])
-			->addText('title', ['label' => 'Tytuł'])
-			->addText('shortcode', [
-				'label' => 'Kod formularza',
-				'instructions' => 'Wklej kod formularza:  [contact-form-7 id="f12c470" title="Contact form 1"]',
-				'default_value' => '[contact-form-7 id="f12c470" title="Contact form 1"]',
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
+
+			->addRepeater('r_contact', [
+				'label' => 'Działy',
+				'layout' => 'table',
+				'min' => 0,
+				'max' => 6,
+				'button_label' => 'Dodaj dział',
+			])
+			->addText('header', ['label' => 'Nazwa działu'])
+			->addText('phone', ['label' => 'Telefon'])
+			->addText('mail', ['label' => 'Adres e-mail'])
+			->endRepeater()
+
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
@@ -97,15 +111,7 @@ class Contact extends Block
 			])
 			->addSelect('background', [
 				'label' => 'Kolor tła',
-				'choices' => [
-					'none' => 'Brak (domyślne)',
-					'section-white' => 'Białe',
-					'section-light' => 'Jasne',
-					'section-gray' => 'Szare',
-					'section-brand' => 'Marki',
-					'section-gradient' => 'Gradient',
-					'section-dark' => 'Ciemne',
-				],
+				'choices' => SectionBackgrounds::choices(),
 				'default_value' => 'none',
 				'ui' => 0,
 				'allow_null' => 0,
@@ -118,8 +124,8 @@ class Contact extends Block
 	public function with(): array
 	{
 		$fields = [
-			'g_contact_1' => get_field('g_contact_1'),
-			'g_contact_2' => get_field('g_contact_2'),
+			'g_contact' => get_field('g_contact'),
+			'departments' => get_field('g_contact')['r_contact'] ?? [],
 
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
