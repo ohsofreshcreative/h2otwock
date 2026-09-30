@@ -6,13 +6,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php
-	$metaDescription = is_singular() && has_excerpt()
-		? wp_strip_all_tags(get_the_excerpt())
-		: (get_bloginfo('description') ?: sprintf(__('Oficjalna strona %s.', 'sage'), $siteName));
-	$canonicalUrl = wp_get_canonical_url() ?: home_url(add_query_arg([], $_SERVER['REQUEST_URI'] ?? '/'));
-	?>
-
 	<meta name="description" content="{{ $metaDescription }}">
 	<link rel="canonical" href="{{ $canonicalUrl }}">
 
