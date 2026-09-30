@@ -6,12 +6,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	@php
+	<?php
 	$metaDescription = is_singular() && has_excerpt()
 		? wp_strip_all_tags(get_the_excerpt())
 		: (get_bloginfo('description') ?: sprintf(__('Oficjalna strona %s.', 'sage'), $siteName));
 	$canonicalUrl = wp_get_canonical_url() ?: home_url(add_query_arg([], $_SERVER['REQUEST_URI'] ?? '/'));
-	@endphp
+	?>
 
 	<meta name="description" content="{{ $metaDescription }}">
 	<link rel="canonical" href="{{ $canonicalUrl }}">
@@ -26,7 +26,7 @@
 	@endif
 	<meta name="twitter:card" content="summary_large_image">
 
-	@php
+	<?php
 	$organizationSchema = array_filter([
 		'@type' => 'Organization',
 		'name' => $siteName,
@@ -35,7 +35,7 @@
 		'telephone' => $footer_contact['phone'] ?? null,
 		'email' => $footer_contact['email'] ?? null,
 	]);
-	@endphp
+	?>
 	<script type="application/ld+json">
 	{!! wp_json_encode([
 		'@context' => 'https://schema.org',
