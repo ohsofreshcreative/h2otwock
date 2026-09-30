@@ -29,10 +29,25 @@ $(document).ready(function () {
         && url.search === window.location.search && url.hash) {
         suppressed = true;
         keepSuppressed();
+
+        // Skok w dół do kotwicy: schowaj menu od razu, bo scroll jest wyciszony
+        // i inaczej menu główne zostałoby nad przypiętym submenu.
+        const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+        if (target && target.getBoundingClientRect().top > 0) {
+          navbar.addClass('scrollUp').removeClass('scrollTop scrollDown');
+        }
       }
     } catch {
       // ignoruj nieprawidłowe URL-e
     }
+  });
+
+  // Ręczny scroll użytkownika kończy wyciszenie, inaczej menu nie wróci przy przewijaniu w górę.
+  ['wheel', 'touchmove', 'keydown'].forEach((type) => {
+    window.addEventListener(type, () => {
+      window.clearTimeout(suppressTimer);
+      suppressed = false;
+    }, { passive: true });
   });
 
   $(window).on('scroll', function () {
