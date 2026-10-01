@@ -1,6 +1,11 @@
 <!--- events --->
 
-@php($hasImages = !empty($g_events['image1']) || !empty($g_events['image2']) || !empty($g_events['image3']))
+@php($images = array_filter([
+	$g_events['image1'] ?? null,
+	$g_events['image2'] ?? null,
+	$g_events['image3'] ?? null,
+]))
+@php($hasImages = !empty($images))
 
 <section
 	data-gsap-anim="section"
@@ -12,24 +17,21 @@
 	$background => filled($background) && $background !== 'none',
 	])>
 
+	@if ($hasImages)
+	<div class="absolute inset-x-0 -top-14.25 md:-top-26.25 h-14.25 md:h-26.25 bg-third" aria-hidden="true"></div>
+	@endif
+
 	<div class="__wrapper c-main grid">
 		@if ($hasImages)
-		<div data-gsap-element="img" class="__photos relative z-10 grid grid-cols-3 gap-4 -mt-12 md:-mt-24 mb-14">
-			@if (!empty($g_events['image1']))
-			<figure class="m-0">
-				<img class="radius-img w-full h-72 object-cover" src="{{ $g_events['image1']['url'] }}" alt="{{ $g_events['image1']['alt'] ?? '' }}">
+		<div data-gsap-element="img" class="__photos relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 -mt-12 md:-mt-24 mb-14">
+			@foreach ($images as $image)
+			<figure @class([
+				'm-0',
+				'hidden md:block' => !$loop->first,
+			])>
+				<img class="radius-img w-full h-72 object-cover" src="{{ $image['url'] }}" alt="{{ $image['alt'] ?? '' }}">
 			</figure>
-			@endif
-			@if (!empty($g_events['image2']))
-			<figure class="m-0">
-				<img class="radius-img w-full h-72 object-cover" src="{{ $g_events['image2']['url'] }}" alt="{{ $g_events['image2']['alt'] ?? '' }}">
-			</figure>
-			@endif
-			@if (!empty($g_events['image3']))
-			<figure class="m-0">
-				<img class="radius-img w-full h-72 object-cover" src="{{ $g_events['image3']['url'] }}" alt="{{ $g_events['image3']['alt'] ?? '' }}">
-			</figure>
-			@endif
+			@endforeach
 		</div>
 		@endif
 

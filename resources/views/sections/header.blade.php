@@ -27,8 +27,8 @@ use App\Walkers\MobileDropdownWalker;
 			</nav>
 			@endif
 			<div class="">
-				<a href="/kontakt/" class="block w-full btn btn-secondary">
-					Kontakt
+				<a href="#" class="block w-full btn btn-secondary">
+					Kup bilet
 				</a>
 			</div>
 		</div>
@@ -98,8 +98,8 @@ use App\Walkers\MobileDropdownWalker;
 			@endif
 
 			<div class="mt-8">
-				<a href="/kontakt/" class="block w-full btn btn-secondary">
-					Kontakt
+				<a href="#" class="block w-full btn btn-secondary">
+					Kup bilet
 				</a>
 			</div>
 

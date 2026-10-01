@@ -9,6 +9,8 @@
 	$background => filled($background) && $background !== 'none',
 	])>
 
+	<img class="absolute mix-blend-overlay opacity-10 top-1/2 -translate-y-7/12 right-0 translate-x-1/3 z-1 pointer-events-none w-[1004px]" src="{{ get_template_directory_uri() }}/resources/images/signet.svg" alt="" />
+
 	<div class="__wrapper c-main">
 		@if (!empty($g_proces['header']) || !empty($g_proces['txt']))
 		<div class="__top max-w-2xl">
@@ -28,10 +30,10 @@
 				<div data-gsap-element="stagger" class="__card swiper-slide relative flex flex-col bg-primary-50 radius p-6 overflow-hidden">
 					<div class="relative z-10">
 						@if (!empty($item['number']))
-						<p class="text-h1 text-primary">{{ $item['number'] }}</p>
+						<p class="text-h2 text-primary">{{ $item['number'] }}</p>
 						@endif
 						@if (!empty($item['title']))
-						<p class="text-h5 text-primary mt-4">{{ $item['title'] }}</p>
+						<p class="text-h6 text-primary mt-4">{{ $item['title'] }}</p>
 						@endif
 						@if (!empty($item['txt']))
 						<div class="mt-2">{!! $item['txt'] !!}</div>
