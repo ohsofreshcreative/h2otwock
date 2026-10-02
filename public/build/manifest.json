@@ -33,7 +33,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-umJGS_QV.css",
+    "file": "assets/app-ChCPnsVP.css",
     "name": "app",
     "names": [
       "app.css"
@@ -41,6 +41,7 @@
     "src": "resources/css/app.css",
     "isEntry": true,
     "assets": [
+      "assets/PolySans Bulky Wide-VzLwgn3K.ttf",
       "assets/btn-arrow-DSZ4x1kn.svg",
       "assets/bottom-arrow-BE5KB43S.svg",
       "assets/pointer-5_58814e.svg",
@@ -48,7 +49,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-Xbi6n1bL.css",
+    "file": "assets/editor-D60BbKxG.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -56,11 +57,16 @@
     "src": "resources/css/editor.css",
     "isEntry": true,
     "assets": [
+      "assets/PolySans Bulky Wide-VzLwgn3K.ttf",
       "assets/btn-arrow-DSZ4x1kn.svg",
       "assets/bottom-arrow-BE5KB43S.svg",
       "assets/pointer-5_58814e.svg",
       "assets/cta-mask-DkOSFVpY.svg"
     ]
+  },
+  "resources/fonts/PolySans Bulky Wide.ttf": {
+    "file": "assets/PolySans Bulky Wide-VzLwgn3K.ttf",
+    "src": "resources/fonts/PolySans Bulky Wide.ttf"
   },
   "resources/images/bottom-arrow.svg": {
     "file": "assets/bottom-arrow-BE5KB43S.svg",

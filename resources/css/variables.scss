@@ -461,11 +461,11 @@ body {
 }
 
 @font-face {
-	font-family: 'PolySans', sans-serif;
-	src: url('resources/fonts/PolySans.woff2') format('woff2'),
-		url('resources/fonts/PolySans.woff') format('woff');
+	font-family: 'PolySans';
+	src: url('../fonts/PolySans Bulky Wide.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
+	font-display: swap;
 }
 
 /*--- !TYPOGRAPHY ---*/
